@@ -39,7 +39,7 @@ router.post('/login', (request, response) => {
 
         // generate token
         // passing the username to use it when decoding the token
-        let token = jwt.sign({ Username: account.Username }, 'secretkey', { expiresIn: '3h'});
+        let token = jwt.sign({ Username: account.Username }, 'secretkey', { expiresIn: '1h'});
         response.status(200).json(token);
 
 

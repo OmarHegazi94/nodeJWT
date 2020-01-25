@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bcrypt = require('bcrypt');
-const autoIncrement = require('mongoose-auto-increment');
+// const autoIncrement = require('mongoose-auto-increment');
 
 let userSchema = new Schema({
 
-    _id: {
-        type: Number,
-        required: true
-    },
+    // _id: {
+    //     type: Number,
+    //     required: true
+    // },
     Email: {
         type: String,
         required: true
@@ -29,16 +29,16 @@ let userSchema = new Schema({
 
 });
 
-let connection = mongoose.createConnection("mongodb://localhost/tokenDemo", { useNewUrlParser: true, useUnifiedTopology: true });
+// let connection = mongoose.createConnection("mongodb://localhost/tokenDemo", { useNewUrlParser: true, useUnifiedTopology: true });
 
-autoIncrement.initialize(connection);
+// autoIncrement.initialize(connection);
 
-userSchema.plugin(autoIncrement.plugin, {
-    model: 'users', // Collection Name
-    field: '_id', // Field in Document
-    startAt: 1,
-    incrementBy: 1
-});
+// userSchema.plugin(autoIncrement.plugin, {
+//     model: 'users', // Collection Name
+//     field: '_id', // Field in Document
+//     startAt: 1,
+//     incrementBy: 1
+// });
 
 
 userSchema.statics.hashPassword = function(password){
